@@ -1,28 +1,34 @@
 modLoader = "javafml"
-loaderVersion = "[47,)"
+loaderVersion = "[44,48)"
 #issueTrackerURL = ""
-license = "Insert License Here"
+license = "MIT License"
 
 [[mods]]
 modId = "lifeleech"
 version = "${version}"
 displayName = "Life Leech Enchantment"
-authors = "Me!"
+authors = "donmor"
 description = '''
-This is an example description! Tell everyone what your mod is about!
+A Minecraft mod adding Life Leech enchantment. Restore HP on hitting your foes!
 '''
+itemIcon = "minecraft:enchanted_book"
+updateJSONURL = "https://raw.githubusercontent.com/donmor/lifeleech/refs/heads/master/versions.json"
 #logoFile = ""
+displayTest="IGNORE_SERVER_VERSION"
 
 [[dependencies.lifeleech]]
 modId = "forge"
 mandatory = true
-versionRange = "[47,)"
+versionRange = "[44,48)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.lifeleech]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.20.1,)"
+versionRange = "[1.19.3,1.20.2)"
 ordering = "NONE"
 side = "BOTH"
+
+[modproperties.lifeleech]
+    catalogueImageIcon="assets/lifeleech/icon.png"

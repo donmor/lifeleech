@@ -1,0 +1,7 @@
+{
+  "enchantment.lifeleech.lifeleech": "Life Leech",
+  "enchantment.lifeleech.lifeleech.desc": "Leech health from foes",
+  "config.lifeleech.general": "General settings",
+  "config.lifeleech.general.base": "Life Leech base value",
+  "config.lifeleech.general.multiplier": "Life Leech multiplier"
+}

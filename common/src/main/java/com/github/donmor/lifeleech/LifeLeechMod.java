@@ -7,8 +7,10 @@ public final class LifeLeechMod {
 
 	public abstract static class Conf {
 		public abstract static class General {
+			public static final String l10n = "config.lifeleech.general";
+
 			public abstract static class Base {
-				public static final String l10n = "config.lifeleech.base";
+				public static final String l10n = "config.lifeleech.general.base";
 				public static final String desc = "Base value to calculate leeched HP from";
 				public static final Value def = Value.DEALT_DAMAGE;
 
@@ -20,9 +22,9 @@ public final class LifeLeechMod {
 			}
 
 			public abstract static class Multiplier {
-				public static final String l10n = "config.lifeleech.base";
-				public static final String desc = "Multiplier to calculate leeched HP (=Base*level*Multiplier)";
-				public static final float def = 0.2F;
+				public static final String l10n = "config.lifeleech.general.multiplier";
+				public static final String desc = "Multiplier to calculate leeched HP (=Base(%)*level*Multiplier)";
+				public static final int def = 20;
 			}
 		}
 	}
@@ -30,7 +32,7 @@ public final class LifeLeechMod {
 	public interface ConfigIF {
 		Conf.General.Base.Value Base();
 
-		float Multiplier();
+		int Multiplier();
 	}
 
 	public static ConfigIF options;

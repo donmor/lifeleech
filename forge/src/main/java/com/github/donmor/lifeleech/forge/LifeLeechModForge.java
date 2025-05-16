@@ -27,13 +27,15 @@ public final class LifeLeechModForge {
 		ForgeConfigSpec config = new ForgeConfigSpec.Builder()
 				.configure(builder -> {
 					// General
+					builder.translation(Conf.General.l10n).push(Conf.General.class.getSimpleName());
 					builder.comment(Conf.General.Base.desc).translation(Conf.General.Base.l10n)
-							.defineEnum(Conf.General.Base.class.getCanonicalName().replace(Conf.class.getCanonicalName() + '.', ""), Conf.General.Base.def,
+							.defineEnum(Conf.General.Base.class.getSimpleName(), Conf.General.Base.def,
 									Conf.General.Base.Value.DEALT_DAMAGE,
 									Conf.General.Base.Value.PLAYER_MAX_HP,
 									Conf.General.Base.Value.TARGET_MAX_HP);
 					builder.comment(Conf.General.Multiplier.desc).translation(Conf.General.Multiplier.l10n)
-							.define(Conf.General.Multiplier.class.getCanonicalName().replace(Conf.class.getCanonicalName() + '.', ""), Conf.General.Multiplier.def);
+							.define(Conf.General.Multiplier.class.getSimpleName(), Conf.General.Multiplier.def);
+					builder.pop();
 					return new IModConfig();
 				}).getRight();
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, config);
@@ -41,13 +43,13 @@ public final class LifeLeechModForge {
 			@Override
 			public Conf.General.Base.Value Base() {
 				return config.getValues().get("General.Base") instanceof ConfigValue<?> vw
-						&& vw.get() instanceof Conf.General.Base.Value value ? value : null;
+						&& vw.get() instanceof Conf.General.Base.Value value ? value : Conf.General.Base.Value.DEALT_DAMAGE;
 			}
 
 			@Override
-			public float Multiplier() {
+			public int Multiplier() {
 				return config.getValues().get("General.Multiplier") instanceof ConfigValue<?> vw
-						&& vw.get() instanceof Float value ? value : 0;
+						&& vw.get() instanceof Integer value ? value : 20;
 			}
 		};
 		ENCHANTMENTS.register(FMLJavaModLoadingContext.get().getModEventBus());

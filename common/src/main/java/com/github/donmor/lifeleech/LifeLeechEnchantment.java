@@ -31,9 +31,9 @@ public class LifeLeechEnchantment extends Enchantment {
 	public void doPostAttack(LivingEntity attacker, Entity target, int i) {
 		if (!target.getType().is(ENTITY_TYPE_TAG_KEY))
 			if (target instanceof LivingEntity e) switch (LifeLeechMod.options.Base()) {
-				case DEALT_DAMAGE -> attacker.heal(Math.max(LifeLeechMod.options.Multiplier() * i * ((LivingEntityXIF) e).getLastHurt(), 1));
-				case PLAYER_MAX_HP -> attacker.heal(Math.max(LifeLeechMod.options.Multiplier() * i * attacker.getMaxHealth(), 1));
-				case TARGET_MAX_HP -> attacker.heal(Math.max(LifeLeechMod.options.Multiplier() * i * e.getMaxHealth(), 1));
+				case DEALT_DAMAGE -> attacker.heal(Math.max(LifeLeechMod.options.Multiplier() * 0.01F * i * ((LivingEntityXIF) e).getLastHurt(), 1));
+				case PLAYER_MAX_HP -> attacker.heal(Math.max(LifeLeechMod.options.Multiplier() * 0.01F * i * attacker.getMaxHealth(), 1));
+				case TARGET_MAX_HP -> attacker.heal(Math.max(LifeLeechMod.options.Multiplier() * 0.01F * i * e.getMaxHealth(), 1));
 			}
 		super.doPostAttack(attacker, target, i);
 	}

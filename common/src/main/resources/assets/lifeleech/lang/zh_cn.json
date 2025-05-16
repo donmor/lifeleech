@@ -1,0 +1,7 @@
+{
+  "enchantment.lifeleech.lifeleech": "生命汲取",
+  "enchantment.lifeleech.lifeleech.desc": "从敌人身上汲取HP",
+  "config.lifeleech.general": "通用设置",
+  "config.lifeleech.general.base": "生命汲取计算基础值",
+  "config.lifeleech.general.multiplier": "生命汲取倍率"
+}
